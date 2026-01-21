@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="x-icon" href="Images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Yummior</title>
+</head>
+<body> 
+    <!-- Popup Menu Detail -->
+    <div id="menuPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <img id="popupImage" src="" alt="Menu Image">
+            <h2 id="popupTitle"></h2>
+            <p id="popupDescription"></p>
+            <div class="price">Harga: Rp <span id="popupPrice">0</span></div>
+            
+            <div class="quantity-control">
+                <button class="qty-btn" id="decreaseQty">-</button>
+                <input type="number" id="quantity" value="1" min="1" max="99">
+                <button class="qty-btn" id="increaseQty">+</button>
+            </div>
+            
+            <div class="total-price">
+                Total: Rp <span id="totalPrice">0</span>
+            </div>
+            
+            <div class="popup-buttons">
+                <button class="buy-btn" id="addToCart">Tambah ke Keranjang</button>
+                <button class="buy-btn buy-now" id="buyNow">Beli Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Keranjang -->
+    <div id="cartPopup" class="popup">
+        <div class="popup-content cart-content">
+            <span class="close-btn cart-close">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cartItems">
+                <!-- Item keranjang akan ditampilkan di sini -->
+                <p class="empty-cart">Keranjang kosong</p>
+            </div>
+            <div class="cart-total">
+                Total: Rp <span id="cartTotal">0</span>
+            </div>
+            <button class="buy-btn checkout-btn" id="checkout">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html"> <img src="Images/logo.png" alt="logo"></a>
+        <div class="nav-links">
+             <ul>
+                <li> <a href="contact.html">Contact</a></li>
+                <li> 
+                    <a href="#" id="cartIcon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+             </ul>
+         </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">        
+        <div class="text-box">
+            <h1>YUMMIOR</h1>
+            <h2>Yummy and Lots of Amor</h2>
+            <p>
+                Aneka kue dengan rasa yang lezat dan penuh cinta     
+            </p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu">
+        <h1>Menu</h1>
+        <p>Daftar menu makanan kami yang manis dan lezat</p>
+
+        <div class="row">
+            <div class="menu-col" data-menu="cheesecake">
+                <img src="Images/cheese cake.jpeg" alt="Cheese Cake">
+                <div class="layer">
+                    <h3>Cheese Cake</h3>
+                    <div class="menu-price">Rp 35.000</div>
+                </div>
+            </div>
+            <div class="menu-col" data-menu="churros">
+                <img src="Images/churros.jpeg" alt="Churros">
+                <div class="layer">
+                    <h3>Churros</h3>
+                    <div class="menu-price">Rp 25.000</div>
+                </div>
+            </div>
+            <div class="menu-col" data-menu="cookies">
+                <img src="Images/cookies.jpeg" alt="Cookies">
+                <div class="layer">
+                    <h3>Cookies</h3>
+                    <div class="menu-price">Rp 15.000</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="menu-col" data-menu="cromboloni">
+                <img src="Images/cromboloni.jpeg" alt="Cromboloni">
+                <div class="layer">
+                    <h3>Cromboloni</h3>
+                    <div class="menu-price">Rp 30.000</div>
+                </div>
+            </div>
+            <div class="menu-col" data-menu="donat">
+                <img src="Images/donat.jpg" alt="Donat">
+                <div class="layer">
+                    <h3>Donat</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                </div>
+            </div>
+            <div class="menu-col" data-menu="lukchup">
+                <img src="Images/luk chup.jpeg" alt="Luk Chup">
+                <div class="layer">
+                    <h3>Luk Chup</h3>
+                    <div class="menu-price">Rp 40.000</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="menu-col" data-menu="macaron">
+                <img src="Images/macaron.jpeg" alt="Macaron">
+                <div class="layer">
+                    <h3>Macaron</h3>
+                    <div class="menu-price">Rp 28.000</div>
+                </div>
+            </div>
+            <div class="menu-col" data-menu="waffle">
+                <img src="Images/waffle.jpeg" alt="Waffle">
+                <div class="layer">
+                    <h3>Waffle</h3>
+                    <div class="menu-price">Rp 32.000</div>
+                </div>
+            </div>
+            <div class="menu-col" data-menu="brownies">
+                <img src="Images/brownies.jpeg" alt="Brownies">
+                <div class="layer">
+                    <h3>Brownies</h3>
+                    <div class="menu-price">Rp 22.000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat quia natus! Voluptate ratione porro et, voluptatibus praesentium possimus sed consequatur reiciendis, obcaecati aliquid expedita atque laborum dolores maxime nulla.</p>
+        <div class="icons">
+            <a href="https://wa.me/6281252665333" title="Contact us on WhatsApp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+            <a href="https://www.instagram.com/yummior.sweets/?utm_source=ig_web_button_share_sheet" title="Visit our Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+        </div>
+        <p> Made with <i class="fa-solid fa-heart"></i> by <span>Yummior Sweets Team</span></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
