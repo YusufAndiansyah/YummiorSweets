@@ -44,13 +44,13 @@ const menuData = {
     },
     waffle: {
         name: "Waffle",
-        price: 30000,
+        price: 20000,
         description: "Waffle Belgia renyah dengan topping maple syrup, buah segar, dan whipped cream.",
         image: "Images/waffle.jpeg"
     },
     brownies: {
         name: "Brownies",
-        price: 22000,
+        price: 30000,
         description: "Brownies cokelat pekat dengan tekstur fudgy dan taburan kacang walnut.",
         image: "Images/brownies.jpeg"
     }
