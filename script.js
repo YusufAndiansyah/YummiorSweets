@@ -8,25 +8,25 @@ const menuData = {
     },
     churros: {
         name: "Churros",
-        price: 25000,
+        price: 10000,
         description: "Churros renyah dengan taburan gula kayu manis dan cocolan cokelat leleh.",
         image: "Images/churros.jpeg"
     },
     cookies: {
         name: "Cookies",
-        price: 15000,
+        price: 10000,
         description: "Cookies cokelat chip dengan tekstur lembut di dalam dan renyah di luar.",
         image: "Images/cookies.jpeg"
     },
     cromboloni: {
         name: "Cromboloni",
-        price: 30000,
+        price: 25000,
         description: "Donat Italia dengan berbagai isian creamy seperti custard, cokelat, atau buah.",
         image: "Images/cromboloni.jpeg"
     },
     donat: {
         name: "Donat",
-        price: 20000,
+        price: 15000,
         description: "Donat empuk dengan berbagai topping glaze, cokelat, dan taburan warna-warni.",
         image: "Images/donat.jpg"
     },
@@ -38,13 +38,13 @@ const menuData = {
     },
     macaron: {
         name: "Macaron",
-        price: 28000,
+        price: 25000,
         description: "Macaron Prancis dengan kulit renyah dan isian creamy berbagai rasa.",
         image: "Images/macaron.jpeg"
     },
     waffle: {
         name: "Waffle",
-        price: 32000,
+        price: 30000,
         description: "Waffle Belgia renyah dengan topping maple syrup, buah segar, dan whipped cream.",
         image: "Images/waffle.jpeg"
     },
