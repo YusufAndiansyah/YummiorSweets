@@ -518,6 +518,56 @@ body.popup-open {
     flex-shrink: 0;
 }
 
+/* Cart Item Quantity Controls*/
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.cart-qty-btn {
+    background-color: #9b0062;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.cart-qty-btn:hover {
+    background-color: #ff00d4;
+    transform: scale(1.05);
+}
+
+.cart-item-qty {
+    font-weight: bold;
+    color: #9b0062;
+    min-width: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Hapus styling untuk remove-item yang lama */
+.remove-item {
+    display: none;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #666;
+    padding: 30px;
+    font-size: 16px;
+    font-style: italic;
+}
+
 .remove-item {
     background-color: #ff0000;
     color: white;
@@ -562,6 +612,73 @@ body.popup-open {
 
 .checkout-btn:hover {
     background-color: #9b0062;
+}
+
+/* Address Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #9b0062;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #9b0062;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.cancel-btn {
+    background-color: #666;
+}
+
+.cancel-btn:hover {
+    background-color: #444;
+}
+
+/* Popup buttons untuk address form */
+.popup-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.popup-buttons .buy-btn {
+    flex: 1;
+}
+
+/* Responsive untuk address form */
+@media (max-width: 480px) {
+    .popup-buttons {
+        flex-direction: column;
+    }
 }
 
 /* Footer Styling */

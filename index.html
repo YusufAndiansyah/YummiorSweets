@@ -51,6 +51,41 @@
         </div>
     </div>
 
+    <!-- Popup Alamat -->
+    <div id="addressPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn address-close">&times;</span>
+            <h2>Informasi Pengiriman</h2>
+            <form id="addressForm">
+                <div class="form-group">
+                    <label for="customerName">Nama Lengkap *</label>
+                    <input type="text" id="customerName" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Nomor WhatsApp *</label>
+                    <input type="tel" id="customerPhone" placeholder="Contoh: 081234567890" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">Alamat Lengkap *</label>
+                    <textarea id="customerAddress" rows="4" placeholder="Masukkan alamat lengkap (jalan, RT/RW, kelurahan, kecamatan, kota)" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="customerNote">Catatan (opsional)</label>
+                    <textarea id="customerNote" rows="3" placeholder="Catatan tambahan untuk pesanan"></textarea>
+                </div>
+                <div class="popup-buttons">
+                    <button type="button" class="buy-btn cancel-btn" id="cancelAddress">Batal</button>
+                    <button type="submit" class="buy-btn checkout-btn" id="confirmAddress">Lanjut ke WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navbar --> <!-- SEBELUM INI -->
+    <nav>
+        <!-- ... existing navbar code ... -->
+    </nav>
+
     <!-- Navbar -->
     <nav>
         <a href="index.html"> <img src="Images/logo.png" alt="logo"></a>
@@ -161,7 +196,7 @@
         <h4>About Us</h4>
         <p>Kami adalah Yummior Sweets, menghadirkan aneka kue dan pastry lezat penuh cinta sejak 2026. Setiap gigitan dibuat dengan bahan pilihan terbaik untuk memberikan pengalaman rasa yang tak terlupakan. Pesan sekarang untuk kebahagiaan manis di setiap momen spesial Anda! Yummior Sweets menghadirkan kebahagiaan manis dalam setiap gigitan. Kue-kue kami dibuat dengan resep istimewa dan bahan premium, siap menemani momen spesial Anda.<br>Selamat menikmati!</p>
         <div class="icons">
-            <a href="https://wa.me/6281252665333" title="Contact us on WhatsApp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+            <a href="https://www.tiktok.com/@yummy.amor?_r=1&_t=ZS-93R1bfoAgWm" title="Visit our TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok fa-2xl"></i></a>
             <a href="https://www.instagram.com/yummior.sweets/?utm_source=ig_web_button_share_sheet" title="Visit our Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram fa-2xl"></i></a>
         </div>
         <p> Made with <i class="fa-solid fa-heart"></i> by <span>Yummior Sweets Team</span></p>
