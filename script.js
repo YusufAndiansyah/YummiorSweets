@@ -218,7 +218,11 @@ function addToCart() {
     const menuId = menuPopup.dataset.currentMenu;
     const quantity = parseInt(document.getElementById('quantity').value);
     
-    if (!menuId || quantity < 1) return;
+    // PERBAIKAN: Validasi yang lebih ketat
+    if (!menuId || quantity < 1) {
+        alert('Jumlah minimal 1!');
+        return;
+    }
     
     // Cek apakah item sudah ada di keranjang
     const existingItemIndex = cart.findIndex(item => item.id === menuId);
@@ -331,37 +335,40 @@ function buyNow() {
     const menuId = menuPopup.dataset.currentMenu;
     const quantity = parseInt(document.getElementById('quantity').value);
     
-    if (!menuId || quantity < 1) return;
-    
-    // Simpan item untuk checkout
-    const tempCart = [{
-        id: menuId,
-        quantity: quantity
-    }];
-    
-    // Reset form
-    document.getElementById('addressForm').reset();
+    // Validasi input
+    if (!menuId || quantity < 1) {
+        alert('Jumlah minimal 1!');
+        return;
+    }
     
     // Tampilkan popup alamat
     showAddressPopup();
     
-    // Fungsi khusus untuk buyNow
-    const processBuyNow = function() {
+    // Ambil referensi form
+    const addressForm = document.getElementById('addressForm');
+
+    // Hapus listener lama agar tidak terjadi penumpukan (double order)
+    const newForm = addressForm.cloneNode(true);
+    addressForm.parentNode.replaceChild(newForm, addressForm);
+    
+    // Tambahkan event listener baru untuk proses Beli Sekarang
+    newForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
         const name = document.getElementById('customerName').value.trim();
         const phone = document.getElementById('customerPhone').value.trim();
         const address = document.getElementById('customerAddress').value.trim();
         const note = document.getElementById('customerNote').value.trim();
         
-        // Validasi form
         if (!name || !phone || !address) {
-            alert('Harap lengkapi semua informasi yang diperlukan (bertanda *)');
+            alert('Harap lengkapi informasi pengiriman!');
             return;
         }
-        
+
         const menu = menuData[menuId];
         const itemTotal = calculateTotal(menu.price, quantity);
         
-        // Buat pesan untuk WhatsApp
+        // KONSTRUKSI PESAN WHATSAPP
         let whatsappMessage = `Halo Yummior Sweets! Saya ingin memesan:\n\n`;
         whatsappMessage += `• ${menu.name} - ${quantity} x Rp ${menu.price.toLocaleString('id-ID')} = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
         whatsappMessage += `\n*Total: Rp ${itemTotal.toLocaleString('id-ID')}*\n\n`;
@@ -374,32 +381,25 @@ function buyNow() {
             whatsappMessage += `Catatan: ${note}\n`;
         }
         whatsappMessage += "---\n\n";
-        whatsappMessage += "Mohon konfirmasi ketersediaan dan cara pembayarannya. Terima kasih!";
+        whatsappMessage += "Mohon konfirmasi pesanan saya. Terima kasih!";
         
-        // Encode pesan untuk URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
         const whatsappNumber = "6283894513903";
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
         
-        // Buka WhatsApp di tab baru
-        window.open(whatsappURL, '_blank');
-        
-        // Tutup popup
         closePopup();
-    };
-    
-    // Event listener untuk form buyNow
-    addressForm.removeEventListener('submit', processCheckout);
-    addressForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        processBuyNow();
+        
+        // Kembalikan fungsionalitas form ke checkout normal setelah popup ditutup
+        setTimeout(() => {
+            location.reload(); // Cara termudah untuk reset state listener
+        }, 500);
     });
 }
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
-    
+        
     // Menu item click events
     document.querySelectorAll('.menu-col').forEach(item => {
         item.addEventListener('click', function() {
@@ -416,11 +416,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.getElementById('decreaseQty').addEventListener('click', function() {
-        const input = document.getElementById('quantity');
-        if (input.value > 1) {
-            input.value = parseInt(input.value) - 1;
-            updateTotalPrice();
-        }
+    const input = document.getElementById('quantity');
+    if (input.value > 1) {
+        input.value = parseInt(input.value) - 1;
+        updateTotalPrice();
+    } else {
+        alert('Jumlah minimal 1!');
+    }
     });
     
     document.getElementById('quantity').addEventListener('input', updateTotalPrice);
